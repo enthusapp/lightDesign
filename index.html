@@ -5,8 +5,12 @@
     <title>ENTHUS Light Design</title>
   </head>
   <body>
-    Enthus Light Design
-    <div id="test"></div>
+    <h1>Enthus 조명 driver 저항 설계</h1>
+    <p>목표 전력량(W) : <input id="ep" type="number"  style="height:20px; width:171px;"></p>
+    <p>한 회로 LED 수(EA) : <input id="led" type="number"  style="height:20px; width:143px;"></p>
+    <p>회로수(EA) : <input id="circuit" type="number" style="height:20px; width:205px;"></p>
+    <p><input type="submit" value="입력 완료" onclick="getOhm()" style="height:25px; width:300px;"></p>
+    <p>최적 저항값은 <b id="ohm" type="text" value="0"></b > 입니다.</p>
     <script src="./renderer.js"></script>
   </body>
 </html>
