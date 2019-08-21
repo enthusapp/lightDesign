@@ -1,6 +1,6 @@
 window.onload = function (){
     var element = document.getElementById("button");
-    element.addEventListener("click", getOhm, false);
+    element.addEventListener("click", getOhm, false); 
     };
     function getOhm(){
         var a = document.getElementById("ep").value;
