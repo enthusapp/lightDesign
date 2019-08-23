@@ -1,4 +1,16 @@
 document
+  .getElementById('formTest')
+  .addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const data = new FormData(e.currentTarget);
+    console.log(data.get('ep'));
+    console.log(data.get('led'));
+    console.log(data.get('circuit'));
+  });
+
+/*
+document
   .getElementById('button')
   .addEventListener('click', () => {
     const ep = Number(document.getElementById('ep').value);
@@ -11,3 +23,4 @@ document
     document.getElementById('ohm')
       .innerHTML = `최적 저항은 <b>${ohm}</b> 입니다.`;
   });
+*/

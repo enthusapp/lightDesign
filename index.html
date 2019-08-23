@@ -6,10 +6,24 @@
   </head>
   <body>
     <h1>Enthus 조명 driver 저항 설계</h1>
-    <p>목표 전력량(W) : <input id="ep" type="number"  style="height:20px; width:171px;"></p>
-    <p>한 회로 LED 수(EA) : <input id="led" type="number"  style="height:20px; width:143px;"></p>
-    <p>회로수(EA) : <input id="circuit" type="number" style="height:20px; width:205px;"></p>
-    <p><input id="button" type="submit" value="입력 완료" style="height:25px; width:300px;"></p>
+    <form id="formTest">
+      <div>
+          <label for="ep">목표 전력량(W):</label>
+          <input type="number" name="ep" min="1" max="1000" required/>
+      </div>
+      <div>
+          <label for="led">한 회로 LED 수(EA):</label>
+          <input type="number" name="led"/>
+      </div>
+      <div>
+          <label for="circuit">회로수(EA):</label>
+          <input type="number" name="circuit" />
+      </div>
+      <div class="button">
+          <button type="submit">입력 완료</button>
+      </div>
+    </form>
+    <p>최적 저항값은 <b id="ohm" type="text" value = "0"></b > 입니다.</p>
     <p id="ohm" type="text" value = "0"></p>
     <script src="./renderer.js"></script>
   </body>
