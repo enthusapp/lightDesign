@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8">
     <title>ENTHUS Light Design</title>
+    <link rel="stylesheet" type="text/css" href="form.css">
   </head>
   <body>
     <h1>Enthus 조명 driver 저항 설계</h1>
-    <form id="formTest">
+    <form id="form1">
       <div>
-          <label for="ep">목표 전력량(W):</label>
-          <input type="number" name="ep" min="1" max="1000" required/>
-      </div>
-      <div>
-          <label for="led">한 회로 LED 수(EA):</label>
-          <input type="number" name="led"/>
+        <label for="ep" class="a">목표 전력량(W):</label>
+        <input type="number" id="ep" name="ep" min="1" max="1000" required>
       </div>
       <div>
-          <label for="circuit">회로수(EA):</label>
-          <input type="number" name="circuit" />
+        <label for="led" class="a">한 회로 LED 수(EA):</label>
+        <input type="number" id="led" name="led" required>
       </div>
-      <div class="button">
-          <button type="submit">입력 완료</button>
+      <div>
+        <label for="circuit" class="a">회로 수(EA):</label>
+        <input type="number" id="circuit" name="circuit"required>
       </div>
+      <div>
+        <button type="submit"><strong>입력 완료</strong></button>
+      </div>
+      <p id="ohm" class="ohm" type="text" value = "0">&nbsp</p>
+      <script src="./renderer.js"></script>
     </form>
-    <p>최적 저항값은 <b id="ohm" type="text" value = "0"></b > 입니다.</p>
-    <p id="ohm" type="text" value = "0"></p>
-    <script src="./renderer.js"></script>
   </body>
 </html>
