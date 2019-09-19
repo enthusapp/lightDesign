@@ -3,7 +3,7 @@ document
   .addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const f = new FormData(e.currentTarget());
+    const f = new FormData(e.currentTarget);
     let ohm;
 
     ohm = f.get('ep') / f.get('circuit');
