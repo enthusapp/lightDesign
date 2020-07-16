@@ -10,7 +10,7 @@
     <form id="form1">
       <div>
         <label for="ep" class="a">목표 전력량(W):</label>
-        <input type="number" id="ep" name="ep" min="1" max="1000" required>
+        <input type="number" id="ep" name="ep" step="0.1" min="0.1" max="1000" required>
       </div>
       <div>
         <label for="led" class="a">한 회로 LED 수(EA):</label>
@@ -23,7 +23,8 @@
       <div>
         <button type="submit"><strong>입력 완료</strong></button>
       </div>
-      <p id="ohm" class="ohm" type="text" value = "0">&nbsp</p>
+      <p id="ohm" class="ohm" type="text" value = "0"></p>
+      <p id="current" class="ohm" type="text" value = "0"></p>
       <script src="./renderer.js"></script>
     </form>
   </body>
