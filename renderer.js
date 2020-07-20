@@ -27,17 +27,17 @@ document
 
     let currentForOneLED;
     let ohm;
-     
-    if(f.get('driver')=='aur6601'){
+
+    if (f.get('driver') === 'aur6601') {
       currentForOneLED = f.get('ep') / f.get('circuit') / ((3 * f.get('led')) + 1);
-    } if(f.get('driver')=='lm317') {
+    } if (f.get('driver') === 'lm317') {
       currentForOneLED = f.get('ep') / f.get('circuit') / 24;
     }
 
-    if(f.get('driver')=='aur6601'){
-      ohm = 0.1/currentForOneLED
-    } if(f.get('driver')=='lm317') {
-      ohm = 1.25/currentForOneLED
+    if (f.get('driver') === 'aur6601') {
+      ohm = 0.1 / currentForOneLED;
+    } if (f.get('driver') === 'lm317') {
+      ohm = 1.25 / currentForOneLED;
     }
 
     document
