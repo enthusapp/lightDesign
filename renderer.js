@@ -22,9 +22,23 @@ document
   .addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
+
     const f = new FormData(e.currentTarget);
-    const currentForOneLED = f.get('ep') / f.get('circuit') / ((3 * f.get('led')) + 1);
-    const ohm = 0.1 / currentForOneLED;
+
+    let currentForOneLED;
+    let ohm;
+     
+    if(f.get('driver')=='aur6601'){
+      currentForOneLED = f.get('ep') / f.get('circuit') / ((3 * f.get('led')) + 1);
+    } if(f.get('driver')=='lm317') {
+      currentForOneLED = f.get('ep') / f.get('circuit') / 24;
+    }
+
+    if(f.get('driver')=='aur6601'){
+      ohm = 0.1/currentForOneLED
+    } if(f.get('driver')=='lm317') {
+      ohm = 1.25/currentForOneLED
+    }
 
     document
       .getElementById('ohm')
@@ -34,7 +48,7 @@ document
 
     document
       .getElementById('current')
-      .innerHTML = `전류는 <b>${
+      .innerHTML = `전체 전류는 <b>${
         decimalAdjust('round', currentForOneLED * f.get('led'), -2)
       }</b> A 입니다.`;
   });
