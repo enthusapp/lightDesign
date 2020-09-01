@@ -25,6 +25,11 @@ window.addEventListener('load', () => {
   const led = url.get('led');
   const driverArr = document.getElementsByName('driver');
 
+  if (!driver) return;
+  if (!ep) return;
+  if (!circuit) return;
+  if (!led) return;
+
   let currentForOneLED;
   let ohm;
   if (driver === 'aur6601') {
@@ -36,27 +41,23 @@ window.addEventListener('load', () => {
   }
 
   driverArr.forEach((e) => {
-    if (e.value === driver) {
-      e.checked = true;
-    }
+    if (e.value === driver) e.checked = true;
   });
 
-  if (ohm) {
-    document
-      .getElementById('ep').value = `${ep}`;
-    document
-      .getElementById('led').value = `${led}`;
-    document
-      .getElementById('circuit').value = `${circuit}`;
-    document
-      .getElementById('ohm')
-      .innerHTML = `최적 저항은 <b>${
-        decimalAdjust('round', ohm, -2)
-      }</b> Ω 입니다.`;
-    document
-      .getElementById('current')
-      .innerHTML = `전체 전류는 <b>${
-        decimalAdjust('round', currentForOneLED * led, -2)
-      }</b> A 입니다.`;
-  }
+  document
+    .getElementById('ep').value = `${ep}`;
+  document
+    .getElementById('led').value = `${led}`;
+  document
+    .getElementById('circuit').value = `${circuit}`;
+  document
+    .getElementById('ohm')
+    .innerHTML = `최적 저항은 <b>${
+      decimalAdjust('round', ohm, -2)
+    }</b> Ω 입니다.`;
+  document
+    .getElementById('current')
+    .innerHTML = `전체 전류는 <b>${
+      decimalAdjust('round', currentForOneLED * led, -2)
+    }</b> A 입니다.`;
 });
