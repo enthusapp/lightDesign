@@ -17,7 +17,7 @@ const decimalAdjust = (type, val, ex) => {
   return +`${value[0]}e${value[1] ? +value[1] + exp : exp}`;
 };
 
-window.onload = () => {
+window.addEventListener('load', () => {
   const url = (new URL(window.location.href)).searchParams;
   const driver = url.get('driver');
   const ep = url.get('ep');
@@ -41,14 +41,13 @@ window.onload = () => {
     }
   });
 
-  document
-    .getElementById('ep').value = `${ep}`;
-  document
-    .getElementById('led').value = `${led}`;
-  document
-    .getElementById('circuit').value = `${circuit}`;
-
   if (ohm) {
+    document
+      .getElementById('ep').value = `${ep}`;
+    document
+      .getElementById('led').value = `${led}`;
+    document
+      .getElementById('circuit').value = `${circuit}`;
     document
       .getElementById('ohm')
       .innerHTML = `최적 저항은 <b>${
@@ -60,4 +59,4 @@ window.onload = () => {
         decimalAdjust('round', currentForOneLED * led, -2)
       }</b> A 입니다.`;
   }
-};
+});
