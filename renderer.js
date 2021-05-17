@@ -30,10 +30,19 @@ window.addEventListener('load', () => {
   if (!circuit) return;
   if (!led) return;
 
+  const currentOneLED =  ep / circuit / ((3 * led) + 1);
+
   let currentForOneLED;
   let ohm;
   if (driver === 'aur6601') {
-    currentForOneLED = ep / circuit / ((3 * led) + 1);
+    if(currentOneLED > 0.65) {
+      currentForOneLED = ep / circuit / ((3.5 * led) + 1);
+      console.log(currentForOneLED);
+    } else if(currentOneLED > 0.45) { 
+      currentForOneLED = ep / circuit / ((3.3 * led) + 1);
+    } else {
+      currentForOneLED = currentOneLED
+    }
     ohm = 0.1 / currentForOneLED;
   } else {
     currentForOneLED = ep / circuit / 24;
@@ -57,6 +66,11 @@ window.addEventListener('load', () => {
     }</b> Ω 입니다.`;
   document
     .getElementById('current')
+    .innerHTML = `한 회로의 전류는 <b>${
+      decimalAdjust('round', currentForOneLED, -2)
+    }</b> A 입니다.`;
+  document
+    .getElementById('allCurrent')
     .innerHTML = `전체 전류는 <b>${
       decimalAdjust('round', currentForOneLED * led, -2)
     }</b> A 입니다.`;
