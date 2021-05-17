@@ -14,7 +14,7 @@ form div + div { /*폼 위젯 사이의 여백*/
   font-size: 15px;
   font-weight: bold;
   display: inline-block;
-  width: 160px;
+  width: 200px;
   text-align: left;
 }
 
